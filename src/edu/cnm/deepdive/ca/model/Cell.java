@@ -25,7 +25,7 @@ public enum Cell {
   protected int livingNeighbors(Cell[][] terrain, int row, int column) {
     int count = 0;
     for (int rowOffset = -1; rowOffset <= 1; rowOffset++) {
-      int wrapRow = (row + rowOffset) % terrain.length;
+      int wrapRow = (row + rowOffset + terrain.length) % terrain.length;
       for (int colOffset = -1; colOffset <= 1; colOffset++) {
         int wrapCol = (column + colOffset + terrain[wrapRow].length) % terrain[wrapRow].length;
         if (terrain[wrapRow][wrapCol] == ALIVE) {
